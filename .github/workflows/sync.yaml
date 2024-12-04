@@ -19,7 +19,7 @@ jobs:
 
       - name: Connect to AWS
         uses: aws-actions/configure-aws-credentials@v1
-        witch:
+        with:
           role-session-name: awssyncsession
           role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
