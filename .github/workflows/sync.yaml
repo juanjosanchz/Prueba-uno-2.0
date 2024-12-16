@@ -1,4 +1,4 @@
-name: s3 sync action
+name: S3 sync action
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - master
 
 permissions:
-  id.token: write
+  id-token: write
   contents: read
 
 jobs:
@@ -24,6 +24,5 @@ jobs:
           role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      -name: sync bucket
-       run: aws s3 sync ./file/ s3://${{ secrets.AWS_BUCKET_NAME }} --delete
-    
+      - name: sync bucket
+        run: aws s3 sync ./file/ s3://${{ secrets.AWS_BUCKET_NAME }} --delete
